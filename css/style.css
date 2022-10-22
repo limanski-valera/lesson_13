@@ -1,0 +1,991 @@
+/* ================================ Підключення шрифтів ===========================================================
+/* Lato */
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,700,900&display=swap");
+/* ================================ Основні стилі ================================================================= */
+body {
+    background: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    color: #424551;
+}
+[class*="__container"]{
+    max-width: 936px;
+    margin: 0 auto;
+}
+.wrapper{
+    overflow: hidden;
+	position: relative;
+	min-height: 100%;
+}
+/* ================================================= */
+.game__container {
+    height: 550px;
+    background: linear-gradient(0deg, rgba(0,212,255,1) 0%, rgba(0,160,255,1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.game__ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;;
+    z-index: 50;
+}
+/* header */
+.game__header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+.header-game {
+    color: #FFFFFF;
+}
+.header-game >* {
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    position: absolute;
+    font-size: 25px;
+}
+.header-game__score {
+    top: 0;
+    left: 2%;
+    text-align: center;
+}
+.header-game__gold {
+    top: 25px;
+    left: 35%;
+}
+.header-game__gold::before{
+    top: 7px;
+    left: -10px;
+}
+.gold::before {
+    content: "";
+    width: 15px;
+    height: 30px;
+    background-color: gold;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    border-right: 3px solid black;
+    animation-name: gold;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes gold{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+.header-game__gold span {
+    text-transform: lowercase;
+}
+.header-game__world {
+    left: 60%;
+    text-align: center;
+}
+.header-game__time {
+    right: 20px;
+    text-align: center;
+}
+/* cloud */
+.game__clouds{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.cloud-game {
+    position: absolute;
+}
+.cloud-game:first-child{
+    top: 180px;
+    left: 100px;
+    animation-name: first-cloud;
+    animation-duration: 38s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes first-cloud{
+    0%{
+        transform: translate(-600px);
+    }
+    100%{
+        transform: translate(1000px);
+    }
+}
+.cloud-game:nth-child(2){
+    transform: rotateY(180deg);
+    top: 110px;
+    left: 0;
+    scale: 0.8;
+    animation-name: second-cloud;
+    animation-duration: 27s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+@keyframes second-cloud{
+    0%{
+        transform: translate(-100px) rotateY(180deg);
+    }
+    100%{
+        transform: translate(1400px) rotateY(180deg);
+    }
+}
+.cloud-game:last-child{
+    left: 0;
+    top: 150px;
+    scale: 0.6;
+    animation-name: third-cloud;
+    animation-duration: 33s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+@keyframes third-cloud{
+    0%{
+        transform: translate(-400px) rotateY(180deg);
+    }
+    100%{
+        transform: translate(1800px) rotateY(180deg);
+    }
+}
+.cloud-game__item {
+    position: absolute;
+}
+.cloud-game__item:not(:last-child){
+    border: 3px solid silver;
+}
+.cloud-game__item:first-child{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    bottom: 0;
+}
+.cloud-game__item:nth-child(2){
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    left: 30px;
+    bottom: 20px;
+}
+.cloud-game__item:nth-child(3){
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    left: 80px;
+    bottom: 30px;
+}
+.cloud-game__item:nth-child(4){
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    left: 90px;
+    bottom: 0px;
+}
+.cloud-game__item:nth-child(5){
+    width: 60px;
+    height: 37px;
+    background-color: #FFFFFF;
+    left: 33px;
+    bottom: 15px;
+    border: none;
+}
+.cloud-game__item:last-child{
+    width: 85px;
+    height: 37px;
+    background-color: #FFFFFF;
+    left: 25px;
+    bottom: 0px;
+    border-bottom: 3px solid silver;
+}
+/* pipe */
+.pipe__item {
+    position: absolute;
+    z-index: 49;
+}
+.pipe__item:first-child {
+    bottom: 105px;
+    left: 30px;
+}
+.pipe__item:nth-child(2) {
+    bottom: 200px;
+    right: 60px;
+}
+.pipe__part:first-child {
+    border: 2px solid black;
+    background-color: rgb(97, 255, 97);
+    width: 70px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.pipe__part::before {
+    content: "";
+    position: absolute;
+    border: 4px solid rgb(58, 198, 58);
+    border-right: 6px solid rgb(58, 198, 58);
+    height: 100%;
+    width: 35%;
+    top: 3px;
+    left: -10px;
+}
+.pipe__part::after {
+    content: "";
+    position: absolute;
+    border: 3px solid rgb(58, 198, 58);
+    height: 100%;
+    width: 80%;
+    top: 3px;
+    right: -15px;
+}
+.pipe__part:nth-child(2) {
+    border: 2px solid black;
+    background-color: rgb(71, 248, 71);
+    width: 62px;
+    height: 400px;
+    margin-left: 4px;
+    position: absolute;
+    overflow: hidden;
+}
+.pipe__part:nth-child(2)::before{
+    height: 130%;
+    width: 35%;
+    top: -5px;
+}
+.pipe__part:nth-child(2)::after{
+    height: 130%;
+    width: 80%;
+    top: -5px;
+}
+.pipe__part:nth-child(2) .pipe__decor {
+    height: 130%;
+    top: -5px;
+}
+.pipe__decor {
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    top: 3px;
+    left: 35px;
+    background-color: rgb(58, 198, 58);
+}
+/* hill */
+.hill__item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    background-color: green;
+    transform: rotate(-45deg);
+    bottom: -10px;
+    left: 200px;
+}
+.hill__item::before {
+    content: "";
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    width: 5px;
+    height: 10px;
+    background-color: black;
+    transform: rotate(45deg);
+}
+.hill__item::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    width: 5px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: black;
+    transform: rotate(45deg);
+}
+/* cubes */
+.cubes__block {
+    position: absolute;
+    font-size: 0;
+    display: flex;
+}
+.cubes__item {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: #C84D09;
+    position: relative;
+}
+.cubes__item::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 1px;
+    height: 1px;
+    background-color: black;
+}
+.cubes__item::after {
+    content: "";
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 1px;
+    height: 1px;
+    background-color: black;
+}
+.cubes__dot::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: 2px;
+    width: 1px;
+    height: 1px;
+    background-color: black;
+}
+.cubes__dot::after {
+    content: "";
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    width: 1px;
+    height: 1px;
+    background-color: black;
+}
+.cubes--fragile {
+    overflow: hidden;
+}
+.cubes--fragile::before, .cubes--fragile::after {
+    display: none;
+}
+.fragile-stroke {
+    border: 1px solid black;
+    height: 27%;
+    width: 150%;
+    margin-left: -5px;
+    background-color: #C84D09;
+    position: relative;
+}
+.fragile-stroke:nth-child(even) {
+    left: -10px;
+}
+.fragile-stroke::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    height: 140%;
+    width: 40%;
+    left: 30%;
+    border: 2px solid black;
+}
+.cubes--question {
+    font-size: 30px;
+    text-align: center;
+    background-color: #efad89;
+    color: #C84D09;
+    border-color: #C84D09;
+    position: relative;
+    animation-name: cubes--question;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+@keyframes cubes--question{
+    0%{
+        background-color: #efad89;
+        color: #C84D09;
+    }
+    50%{
+        background-color: #f5cab2;
+        color: #c8c209;
+    }
+    100%{
+        background-color: #efad89;
+        color: #C84D09;
+    }
+}
+.cubes--question .gold::before {
+    top: -10px;
+    left: 5px;
+    height: 0px;
+    animation-name: question-gold;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-delay: 12.5s;
+}
+@keyframes question-gold{
+    0%{
+        height: 0px;
+        transform: rotateY(0deg);
+    }
+    50%{
+        height: 25px;
+        transform:  translate(0, -30px) rotateY(180deg);
+    }
+    100%{
+        height: 0px;
+        transform: rotateY(0deg);
+    }
+}
+.cubes__block:first-child{
+    top: 350px;
+    left: 200px;
+}
+.cubes__block:first-child .cubes--empty {
+    animation-name: first-cub;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 8.5s;
+}
+@keyframes first-cub{
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        transform: translate(0, -10px);
+    }
+    100%{
+        transform: translate(0, 0);
+    }
+}
+.cubes__block:nth-child(2){
+    top: 350px;
+    left: 350px;
+}
+.cubes__block:nth-child(3){
+    top: 200px;
+    left: 450px;
+}
+.cubes__block:nth-child(4){
+    top: 300px;
+    left: 600px;
+}
+/* enemy */
+.enemy {
+    position: absolute;
+    bottom: 340px;
+    left: 460px;
+    z-index: 100;
+    animation-name: enemy;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-delay: 27s;
+    transform: scale(0) translate(0, 0);
+}
+@keyframes enemy{
+    0%{
+        transform: scale(0) translate(0, 0);
+    }
+    10%{
+        transform: scale(1) translate(-20px, -60px);
+    }
+    20%{
+        transform: scale(1) translate(50px, -60px);
+    }
+    50%{
+        transform: scale(1) translate(50px, 240px);
+    }
+    80%{
+        transform: scale(1) translate(250px, 240px);
+    }
+    96%{
+        transform: scale(1) translate(100px, 240px);
+    }
+    100%{
+        transform: scale(0) translate(50px, 240px);
+    }
+}
+.enemy__head {
+    border-radius: 52% 47% 42% 37% / 100% 100% 13% 21%;
+    background-color: #C84D09;
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.enemy__head::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background-color: #C84D09;
+    border-bottom: 3px solid black;
+    top: 4px;
+    left: 18px;
+    z-index: 2;
+}
+.enemy__left-eye {
+    position: absolute;
+    background-color: #efded5;
+    width: 10px;
+    height: 15px;
+    border-radius: 5px;
+    left: 25%;
+    top: 25%;
+}
+.enemy__left-eye::before {
+    content: "";
+    height: 15px;
+    width: 7px;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    position: absolute;
+    top: -3px;
+    left: -1px;
+    border-top-right-radius: 50%;
+}
+.enemy__right-eye {
+    position: absolute;
+    background-color: #efded5;
+    width: 10px;
+    height: 15px;
+    border-radius: 5px;
+    right: 25%;
+    top: 25%;
+}
+.enemy__right-eye::before {
+    content: "";
+    height: 15px;
+    width: 7px;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    position: absolute;
+    top: -3px;
+    left: 4px;
+    border-top-left-radius: 50%;
+}
+.enemy__body {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: #efded5;
+    border-radius: 50%;
+    top: 25px;
+    left: 10px;
+}
+.enemy__legs {
+    position: absolute;
+    top: 35px;
+}
+.enemy__left-leg {
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    transform: rotate(30deg);
+    left: 5px;
+    animation-name: enemy__left-leg;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-delay: 0s
+}
+@keyframes enemy__left-leg{
+    0%{
+        transform: rotate(30deg) scale(1);
+    }
+    50%{
+        transform: rotate(0deg) scale(0.8);
+    }
+    100%{
+        transform: rotate(30deg) scale(1);
+    }
+}
+.enemy__right-leg {
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    transform: rotate(-30deg) scale(0.8);
+    left: 30px;
+    animation-name: enemy__right-leg;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-delay: 0s
+}
+@keyframes enemy__right-leg{
+    0%{
+        transform: rotate(-30deg) scale(0.8);
+    }
+    50%{
+        transform: rotate(0deg) scale(1);
+    }
+    100%{
+        transform: rotate(-30deg) scale(0.8);
+    }
+}
+/* mario */
+.mario {
+    position: absolute;
+    bottom: 130px;
+    left: 50px;
+    animation-name: mario;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-delay: 0s; 
+}
+@keyframes mario{
+    0%{
+        transform: translate(0);
+    }
+    4%{
+        transform: translateY(-75px);
+    }
+    6%{
+        transform: translateY(-75px);
+    }
+    10%{
+        transform: translate(60px, -75px);
+    }
+    12%{
+        transform: translate(60px, 5px);
+    }
+    16%{
+        transform: translate(155px, 5px);
+    }
+    17%{
+        transform: translate(155px, -40px);
+    }
+    18%{
+        transform: translate(155px, 5px);
+    }
+    24%{
+        transform: translate(400px, 5px);
+    }
+    25%{
+        transform: translate(400px, -40px);
+    }
+    26%{
+        transform: translate(400px, 5px);
+    }
+    27%{
+        transform: translate(400px, 5px) rotateY(180deg);
+    }
+    35%{
+        transform: translate(100px, 5px) rotateY(180deg);
+    }
+    37%{
+        transform: translate(100px, -75px) rotateY(180deg);
+    }
+    38%{
+        transform: translate(20px, -75px) rotateY(180deg);
+    }
+    39%{
+        transform: translate(20px, -75px) rotateY(0deg);
+    }
+    43%{
+        transform: translate(155px, -175px) rotateY(0deg);
+    }
+    44%{
+        transform: translate(155px, -140px) rotateY(0deg);
+    }
+    46%{
+        transform: translate(255px, -200px) rotateY(0deg);
+    }
+    48%{
+        transform: translate(300px, -140px) rotateY(0deg);
+    }
+    52%{
+        transform: translate(400px, -140px) rotateY(0deg);
+    }
+    54%{
+        transform: translate(400px, -190px) rotateY(0deg);
+    }
+    56%{
+        transform: translate(400px, -140px) rotateY(0deg);
+    }
+    57%{
+        transform: translate(400px, -140px) rotateY(180deg);
+    }
+    62%{
+        transform: translate(250px, -140px) rotateY(180deg);
+    }
+    63%{
+        transform: translate(250px, 5px) rotateY(180deg);
+    }
+    64%{
+        transform: translate(250px, 5px) rotateY(0deg);
+    }
+    66%{
+        transform: translate(280px, 5px) rotateY(0deg);
+    }
+    70%{
+        transform: translate(500px, 5px) rotateY(0deg);
+    }
+    72%{
+        transform: translate(550px, -75px) rotateY(0deg);
+    }
+    74%{
+        transform: translate(550px, 5px) rotateY(0deg);
+    }
+    74%{
+        transform: translate(550px, 5px) rotateY(180deg);
+    }
+    78%{
+        transform: translate(100px, 5px) rotateY(180deg);
+    }
+    81%{
+        transform: translate(100px, -75px) rotateY(180deg);
+    }
+    83%{
+        transform: translate(20px, -75px) rotateY(0deg);
+    }
+    85%{
+        transform: translate(155px, -175px) rotateY(0deg);
+    }
+    87%{
+        transform: translate(155px, -140px) rotateY(0deg);
+    }
+    91%{
+        transform: translate(255px, -200px) rotateY(0deg);
+    }
+    93%{
+        transform: translate(300px, -140px) rotateY(0deg);
+    }
+    94%{
+        transform: translate(400px, -140px) rotateY(0deg);
+    }
+    96%{
+        transform: translate(500px, -200px) rotateY(0deg);
+    }
+    97%{
+        transform: translate(600px, -190px) rotateY(0deg);
+    }
+    98%{
+        transform: translate(800px, -190px) rotateY(0deg);
+    }
+    100%{
+            transform: translate(800px, 0px) rotateY(180deg);
+    }
+}
+.mario__cap {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 97% 17% 42% 37% / 100% 100% 14% 0%;
+    z-index: 6;
+}
+.mario__cap::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
+.mario__head {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    background-color: rgb(240, 202, 142);
+    border-left: 4px solid rgb(227, 110, 52);
+    z-index: 5;
+}
+.mario__head::before {
+    content: "";
+    width: 7px;
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    border-radius: 50%;
+    background-color: rgb(230, 190, 125);
+    transform: rotateX(30deg);
+}
+.mario__head::after {
+    content: "";
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 100%;
+    background-color: rgb(240, 202, 142);
+    transform: rotateZ(20deg);
+}
+.mario__face {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    top: 7px;
+    left: 9px;
+    background-color: black;
+    border-radius: 50%;
+}
+.mario__face::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: black;
+    left: -11px;
+    top: -1px;
+    border-radius: 50%;
+}
+.mario__face::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 2px;
+    background-color: black;
+    left: 2px;
+    top: 8px;
+    border-radius: 50%;
+}
+.mario__left-hands {
+    left: 10px;
+    transform: rotateZ(-30deg);
+    animation-name: mario__left-hands;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-delay: 3s; 
+}
+@keyframes mario__left-hands{
+    0%{
+        transform: rotateZ(-30deg);
+    }
+    50%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotateZ(-30deg);
+    }
+}
+.mario__right-hands {
+    z-index: 4;
+    transform: rotateZ(30deg);
+    left: 2px;
+    animation-name: mario__right-hands;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-delay: 3s; 
+}
+@keyframes mario__right-hands{
+    0%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(-45deg);
+    }
+    100%{
+        transform: rotate(30deg);
+    }
+}
+.mario__left-hands, .mario__right-hands {
+    position: absolute;
+    top: 20px;
+    height: 20px;
+    width: 10px;
+    background-color: red;
+    transform-origin: top;
+}
+.mario__left-hands::before, .mario__right-hands::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #efad89;
+    top: 100%;
+    left: 0;
+}
+.mario__body {
+    position: absolute;
+    top: 20px;
+    left: 2px;
+    width: 15px;
+    height: 30px;
+    background: linear-gradient(rgba(255,0,0,1) 0%, rgba(255,0,0,1) 33%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 100%);
+    z-index: 3;
+}
+.mario__body::before, .mario__body::after {
+    content: "";
+    height: 100%;
+    width: 3px;
+    background-color: #fff;
+    position: absolute;
+}
+.mario__body::after {
+    left: 15px;
+}
+.mario__left-legs, .mario__right-legs {
+    position: absolute;
+    top: 45px;
+    width: 10px;
+    height: 20px;
+    background-color: red;
+    transform-origin: top;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+}
+.mario__left-legs {
+    left: 10px;
+    background-color: rgb(240, 8, 8);
+    transform: rotateZ(-10deg);  
+    animation-name: mario__left-legs;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-delay: 3s;
+}
+@keyframes mario__left-legs{
+    0%{
+        transform: rotateZ(-30deg);
+    }
+    50%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotateZ(-30deg);
+    }
+}
+.mario__right-legs {
+    z-index: 4;
+    transform: rotateZ(20deg);
+    left: 4px;
+    animation-name: mario__right-legs;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-delay: 3s; 
+}
+@keyframes mario__right-legs{
+    0%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(-45deg);
+    }
+    100%{
+        transform: rotate(30deg);
+    }
+}
+.mario__left-legs::before, .mario__right-legs::before {
+    content: "";
+    width: 15px;
+    height: 5px;
+    background-color: #424551;
+    top: 100%;
+    position: absolute;
+}

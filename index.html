@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>lesson 12</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header></header>
+        <main class="page">
+            <div class="page__game game">
+                <div class="game__container">
+                    <div class="game__ground"><img src="img/ground.jpg" alt="ground"></div>
+                    <div class="game__header header-game">
+                        <div class="header-game__score">mario<br>001300</div>
+                        <div class="header-game__gold gold"><span>x</span>01</div>
+                        <div class="header-game__world">world<br>1-1</div>
+                        <div class="header-game__time">time<br>297</div>
+                    </div>
+                    <div class="game__clouds">
+                        <div class="game__cloud cloud-game">
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                        </div>
+                        <div class="game__cloud cloud-game">
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                        </div>
+                        <div class="game__cloud cloud-game">
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                            <div class="cloud-game__item"></div>
+                        </div>
+                    </div>
+                    <div class="game__pipe pipe">
+                        <div class="pipe__item">
+                            <div class="pipe__part">
+                                <div class="pipe__decor"></div>
+                            </div>
+                            <div class="pipe__part">
+                                <div class="pipe__decor"></div>
+                            </div>
+                        </div>
+                        <div class="pipe__item">
+                            <div class="pipe__part">
+                                <div class="pipe__decor"></div>
+                            </div>
+                            <div class="pipe__part">
+                                <div class="pipe__decor"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game__hill hill">
+                        <div class="hill__item"></div>
+                    </div>
+                    <div class="game__cubes cubes">
+                        <div class="cubes__block">
+                            <div class="cubes__item cubes--empty">
+                                <div class="cubes__dot"></div>
+                            </div>
+                        </div>
+                        <div class="cubes__block">
+                            <div class="cubes__item cubes--fragile">
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                            </div>
+                            <div class="cubes__item cubes--empty">
+                                <div class="cubes__dot"></div>
+                            </div>
+                            <div class="cubes__item cubes--fragile">
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                            </div>
+                            <div class="cubes__item cubes--question">
+                                ?
+                                <div class="gold"></div>
+                                <div class="cubes__dot"></div>
+                            </div>
+                            <div class="cubes__item cubes--fragile">
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                            </div>
+                        </div>
+                        <div class="cubes__block">
+                            <div class="cubes__item cubes--question">
+                                ?
+                                <div class="cubes__dot"></div>
+                            </div>
+                        </div>
+                        <div class="cubes__block">
+                            <div class="cubes__item cubes--fragile">
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                            </div>
+                            <div class="cubes__item cubes--empty">
+                                <div class="cubes__dot"></div>
+                            </div>
+                            <div class="cubes__item cubes--fragile">
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                            </div>
+                            <div class="cubes__item cubes--empty">
+                                <div class="cubes__dot"></div>
+                            </div>
+                            <div class="cubes__item cubes--fragile">
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                                <div class="fragile-stroke"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game__enemy enemy">
+                        <div class="enemy__head">
+                            <div class="enemy__left-eye"><div class="enemy__pupil"></div></div>
+                            <div class="enemy__right-eye"><div class="enemy__pupil"></div></div>
+                        </div>
+                        <div class="enemy__body"></div>
+                        <div class="enemy__legs">
+                            <div class="enemy__left-leg"></div>
+                            <div class="enemy__right-leg"></div>
+                        </div>
+                    </div>
+                    <div class="game__mario mario">
+                        <div class="mario__cap"></div>
+                        <div class="mario__head">
+                            <div class="mario__face"></div>
+                        </div>
+                        <div class="mario__hands">
+                            <div class="mario__left-hands"></div>
+                            <div class="mario__right-hands"></div>
+                        </div>
+                        <div class="mario__body"></div>
+                        <div class="mario__legs">
+                            <div class="mario__left-legs"></div>
+                            <div class="mario__right-legs"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>
